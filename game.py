@@ -1,11 +1,21 @@
 import pygame
 import time
 import random
+#import os
+#import gtk
+
+#screen_width = gtk.gdk.screen_width()
+#screen_height = gtk.gdk.screen_height()
 
 pygame.init()
 
-display_width = 480
-display_height = 680
+display_width = 534
+display_height = 726
+
+#pos_x = screen_width / 2 - display_width / 2
+#pos_y = screen_height - display_height
+#os.environ['SDL_VIDEO_WINDOW_POS'] = '%i,%i' % (pos_x,pos_y)
+#os.environ['SDL_VIDEO_CENTERED'] = '0'
 
 black = (0,0,0)
 white = (255,255,255)
@@ -14,51 +24,51 @@ green = (0,255,0)
 blue = (0,0,255)
 
 gameDisplay = pygame.display.set_mode((display_width,display_height))
-pygame.display.set_caption('Przemaluj auto')
+pygame.display.set_caption('Repaint your car')
 clock = pygame.time.Clock()
 
 carImg=[]
-carImg.append(pygame.image.load('samochodzik60x132czerwony.png'))
-carImg.append(pygame.image.load('samochodzik60x132czarny.png'))
-carImg.append(pygame.image.load('samochodzik60x132brazowy.png'))
-carImg.append(pygame.image.load('samochodzik60x132fioletowy.png'))
-carImg.append(pygame.image.load('samochodzik60x132morski.png'))
-carImg.append(pygame.image.load('samochodzik60x132niebieski.png'))
-carImg.append(pygame.image.load('samochodzik60x132pomaranczowy.png'))
-carImg.append(pygame.image.load('samochodzik60x132rozowy.png'))
-carImg.append(pygame.image.load('samochodzik60x132zielony.png'))
-carImg.append(pygame.image.load('samochodzik60x132zolty.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132czerwony.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132czarny.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132brazowy.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132fioletowy.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132morski.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132niebieski.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132pomaranczowy.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132rozowy.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132zielony.png'))
+carImg.append(pygame.image.load('img/samochodzik60x132zolty.png'))
 carImgRev=[]
-carImgRev.append(pygame.image.load('samochodzik60x132czerwonyRev.png'))
-carImgRev.append(pygame.image.load('samochodzik60x132czarnyRev.png'))
-carImgRev.append(pygame.image.load('samochodzik60x132brazowyRev.png'))
-carImgRev.append(pygame.image.load('samochodzik60x132fioletowyRev.png'))
-carImgRev.append(pygame.image.load('samochodzik60x132morskiRev.png'))
-carImgRev.append(pygame.image.load('samochodzik60x132niebieskiRev.png'))
-carImgRev.append(pygame.image.load('samochodzik60x132pomaranczowyRev.png'))
-carImgRev.append(pygame.image.load('samochodzik60x132rozowyRev.png'))
-carImgRev.append(pygame.image.load('samochodzik60x132zielonyRev.png'))
-carImgRev.append(pygame.image.load('samochodzik60x132zoltyRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132czerwonyRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132czarnyRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132brazowyRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132fioletowyRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132morskiRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132niebieskiRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132pomaranczowyRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132rozowyRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132zielonyRev.png'))
+carImgRev.append(pygame.image.load('img/samochodzik60x132zoltyRev.png'))
 brushImg=[]
-brushImg.append(pygame.image.load('pedzelek60x132czerwony.png'))
-brushImg.append(pygame.image.load('pedzelek60x132czarny.png'))
-brushImg.append(pygame.image.load('pedzelek60x132brazowy.png'))
-brushImg.append(pygame.image.load('pedzelek60x132fioletowy.png'))
-brushImg.append(pygame.image.load('pedzelek60x132morski.png'))
-brushImg.append(pygame.image.load('pedzelek60x132niebieski.png'))
-brushImg.append(pygame.image.load('pedzelek60x132pomaranczowy.png'))
-brushImg.append(pygame.image.load('pedzelek60x132rozowy.png'))
-brushImg.append(pygame.image.load('pedzelek60x132zielony.png'))
-brushImg.append(pygame.image.load('pedzelek60x132zolty.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132czerwony.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132czarny.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132brazowy.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132fioletowy.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132morski.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132niebieski.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132pomaranczowy.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132rozowy.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132zielony.png'))
+brushImg.append(pygame.image.load('img/pedzelek60x132zolty.png'))
 
-backImg = pygame.image.load('tlo.png')
+backImg = pygame.image.load('img/tlo.png')
 car_width = 60
 car_height = 132
 brush_width = 60
 brush_height = 132
-back_width = 480
-back_height = 1392
-back_height_small = 1392/6
+back_width = 534
+back_height = 1452
+back_height_small = 1452/6
 
 def cars_painted(count):
     font = pygame.font.Font('freesansbold.ttf',72)
@@ -84,7 +94,7 @@ def message_display(text):
     time.sleep(2)
 
 def crash():
-    message_display('Wypadek!')
+    message_display('Crash!')
     game_loop()
 
 def game_loop():
